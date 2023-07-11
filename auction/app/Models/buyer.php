@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class buyer extends Model
+{
+    use HasFactory;
+    protected $table="buyer";
+    protected $primaryKey="buyer_id";
+    //which fields can be filled in from this application
+    protected $fillable = ['buyer_name','email','password','contact'];
+
+     
+     public function users(){
+        return $this->belongsTo(Users::class);
+     }
+}
