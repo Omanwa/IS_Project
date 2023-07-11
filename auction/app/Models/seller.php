@@ -18,4 +18,7 @@ class seller extends Model
      public function users(){
         return $this->belongsTo(Users::class);
      }
+     public function items(){
+      return $this->hasMany(Items::class);
+   }
 }

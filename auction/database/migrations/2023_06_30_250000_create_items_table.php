@@ -18,9 +18,9 @@ class CreateItemsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('seller_id');
             $table->string('item_name',50);
-            $table->string('item_startprice',50);
-            $table->string('item_starttime',50);
-            $table->string('item_endtime',50);
+            $table->float('item_startprice',50);
+            $table->dateTime('item_starttime');
+            $table->dateTime('item_endtime');
             $table->text('description');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();

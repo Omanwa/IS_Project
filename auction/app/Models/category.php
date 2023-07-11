@@ -13,7 +13,9 @@ class category extends Model
     //which fields can be filled in from this application
     protected $fillable = ['category_name','description'];
 
-   
+    public function items(){
+        return $this->hasMany(Items::class);
+     }
     
      }
 

@@ -17,4 +17,10 @@ class buyer extends Model
      public function users(){
         return $this->belongsTo(Users::class);
      }
+     public function complaint(){
+      return $this->hasMany(Complaint::class);
+   }
+   public function payment(){
+      return $this->hasMany(Payment::class);
+   }
 }
