@@ -12,7 +12,7 @@ class seller extends Model
     protected $table="seller";
     protected $primaryKey="seller_id";
     //which fields can be filled in from this application
-    protected $fillable = ['seller_name','email','password','contact'];
+    protected $fillable = ['email','password','contact'];
 
      
      public function users(){

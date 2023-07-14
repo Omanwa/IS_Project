@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout');
+
 });
+
+//users routes
+Route::post('authRegister',[UserController::class,'authRegister']);
+Route::post('authLogin',[UserController::class,'authLogin']);
+Route::get('login',[UserController::class,'login']);
+Route::get('register',[UserController::class,'register']);
+Route::get('users',[UserController::class,'all']);
+Route::get('user/add',[UserController::class,'add']);
+Route::post('user/save',[UserController::class,'save']);
+Route::post('user/savechanges/{user_id}',[UserController::class,'savechanges']);
+Route::get('user/edit/{user_id}',[UserController::class,'edit']);
+Route::get('user/delete/{user_id}',[UserController::class,'delete']);
+
+//category routes
+Route::get('categories',[CategoryController::class,'all']);
+Route::get('category/add',[CategoryController::class,'add']);
+Route::post('category/save',[CategoryController::class,'save']);
+Route::post('category/savechanges/{category_id}',[CategoryController::class,'savechanges']);
+Route::get('category/edit/{category_id}',[CategoryController::class,'edit']);
+Route::get('category/delete/{category_id}',[CategoryController::class,'delete']);
+
+

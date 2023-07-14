@@ -16,7 +16,6 @@ class CreateBuyerTable extends Migration
         Schema::create('buyer', function (Blueprint $table) {
             $table->increments('buyer_id');//primary key
             $table->unsignedInteger('user_id');
-            $table->string('buyer_name',50);
             $table->string('email',200);
             $table->text('password');
             $table->string('contact',50);

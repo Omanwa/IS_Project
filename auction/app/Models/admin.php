@@ -11,7 +11,7 @@ class admin extends Model
     protected $table="admin";
     protected $primaryKey="admin_id";
     //which fields can be filled in from this application
-    protected $fillable = ['admin_name','email','password'];
+    protected $fillable = ['email','password'];
 
     
      public function users(){

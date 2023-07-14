@@ -11,7 +11,7 @@ class buyer extends Model
     protected $table="buyer";
     protected $primaryKey="buyer_id";
     //which fields can be filled in from this application
-    protected $fillable = ['buyer_name','email','password','contact'];
+    protected $fillable = ['email','password','contact'];
 
      
      public function users(){

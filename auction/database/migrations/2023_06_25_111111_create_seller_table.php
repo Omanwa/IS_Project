@@ -16,7 +16,6 @@ class CreateSellerTable extends Migration
         Schema::create('seller', function (Blueprint $table) {
             $table->increments('seller_id');//primary key
             $table->unsignedInteger('user_id');
-            $table->string('seller_name',50);
             $table->string('email',200);
             $table->text('password');
             $table->string('contact',50);

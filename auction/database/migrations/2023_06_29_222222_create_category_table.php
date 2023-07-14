@@ -17,9 +17,7 @@ class CreateCategoryTable extends Migration
             $table->increments('category_id');//primary key
             $table->string('category_name',50);
             $table->text('description');
-            $table->timestamps();
-
-           
+            $table->timestamps();        
         });
     }
 
