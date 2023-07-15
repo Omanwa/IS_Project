@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ Route::get('/', function () {
 
 });
 
-//users routes
+//////users routes//////
 Route::post('authRegister',[UserController::class,'authRegister']);
 Route::post('authLogin',[UserController::class,'authLogin']);
 Route::get('login',[UserController::class,'login']);
@@ -32,12 +33,23 @@ Route::post('user/savechanges/{user_id}',[UserController::class,'savechanges']);
 Route::get('user/edit/{user_id}',[UserController::class,'edit']);
 Route::get('user/delete/{user_id}',[UserController::class,'delete']);
 
-//category routes
+//////category routes/////
 Route::get('categories',[CategoryController::class,'all']);
 Route::get('category/add',[CategoryController::class,'add']);
 Route::post('category/save',[CategoryController::class,'save']);
 Route::post('category/savechanges/{category_id}',[CategoryController::class,'savechanges']);
 Route::get('category/edit/{category_id}',[CategoryController::class,'edit']);
 Route::get('category/delete/{category_id}',[CategoryController::class,'delete']);
+
+//////Items routes/////
+Route::get('items',[ItemController::class,'all']);
+Route::get('item/add',[ItemController::class,'add']);
+Route::post('item/save',[ItemController::class,'save']);
+Route::post('item/savechanges/{item_id}',[ItemController::class,'savechanges']);
+Route::get('item/edit/{item_id}',[ItemController::class,'edit']);
+Route::get('item/edit/{item_id}',[ItemController::class,'edit']);
+Route::get('item/delete/{item_id}',[ItemController::class,'delete']);
+
+//////Payment routes////
 
 
