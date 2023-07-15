@@ -3,6 +3,8 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ComplaintController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,5 +53,11 @@ Route::get('item/edit/{item_id}',[ItemController::class,'edit']);
 Route::get('item/delete/{item_id}',[ItemController::class,'delete']);
 
 //////Payment routes////
+Route::get('payments',[PaymentController::class,'all']);
+Route::get('payment/add',[PaymentController::class,'add']);
+Route::post('payment/save',[PaymentController::class,'save']);
 
-
+//////Complaint routes////
+Route::get('complaints',[ComplaintController::class,'all']);
+Route::get('complaint/add',[ComplaintController::class,'add']);
+Route::post('complaint/save',[ComplaintController::class,'save']);

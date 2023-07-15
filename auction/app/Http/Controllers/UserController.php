@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+
 
 class UserController extends Controller
 {
@@ -19,20 +21,28 @@ class UserController extends Controller
     public function save(Request $request){
 
         $request->validate([
-            'user_name' => 'useremail',
-            'Role'=>'min:2',
+            'username' => 'min:2',
+            'role'=>'min:2',
             'email'=>'email',
             'password'=>'min:9|required_with:cpassword|same:cpassword',
             'cpassword'=>'min:9',
         ]);
 
         $user_name = ($request->get('user_name'));
+        $user_role = ($request->get('role'));
+        $user_email = ($request->get('email'));
+        $user_password = Hash::make ($request->get('password'));
+        $user_cpassword = ($request->get('cpassword'));
 
         $user = new User();
         $user->username = $user_name;
+        $user->role = $user_role;
+        $user->email = $user_email;
+        $user->password = $user_password;
+
         $user->save();
 
-          return redirect('users')->with('status',"$user_name role saved");
+          return redirect('users')->with('status',"$user_name user saved");
     }
     public function edit($user_id){
         $user = User::find($user_id);

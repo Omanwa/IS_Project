@@ -15,14 +15,14 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('payment_id');//primary key
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('buyer_id');
             $table->unsignedInteger('item_id');
             $table->unsignedFloat('amount');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
 
            
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('buyer_id')->references('buyer_id')->on('buyer');
             $table->foreign('item_id')->references('item_id')->on('items');
         });
     }

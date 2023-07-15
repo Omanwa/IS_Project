@@ -1,8 +1,8 @@
 @extends('layout')
 
 
-@section('headTitle','Payments - ')
-@section('pageTitle','Payments')
+@section('headTitle','Complaints - ')
+@section('pageTitle','Complaints')
 
 
 @section('content')
@@ -11,8 +11,8 @@
 
 
         <div class="d-flex justify-content-end">
-            <a class="btn btn-primary" href="{{URL::to('payment/add')}}">
-                <i class="fas fa-plus"></i>Add Payments
+            <a class="btn btn-primary" href="{{URL::to('complaint/add')}}">
+                <i class="fas fa-plus"></i> Add Complaints
             </a>
         </div>
         <div class="card mb-4">
@@ -23,24 +23,27 @@
                     <table class="table align-items-center mb-0">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">payment_id</th>
-                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">user_id</th>
-                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">item_id</th>
-                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">amount</th>
+                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">complaintid</th>
+                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">buyerid</th>
+                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">description</th>
                                 <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">status</th>
                                 <th class="align-middle text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($payments as $payment)
+                            @forelse($complaints as $complaint)
                             <tr>
-                                <td><p class="text-s px-3 mb-0">{{$payment->payment_id}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$payment->user_id}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$payment->item_id}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$payment->amount}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$payment->status}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$complaint->complaint_id}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$complaint->buyer_id}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$category->description}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$category->status}}</p></td>
                                 <td class="align-middle text-center text-sm">
-                                    
+                                    <a href="{{URL::to('complaint/edit/'.$complaint->complaint_id)}}">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <a onclick= "return confirm('Are you sure?')" href="{{URL::to('complaint/delete/'.$complaint->complaint_id)}}">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </a>
                                 </td>
                             </tr>
                             @empty
@@ -51,7 +54,7 @@
                         </tbody>
                     </table>
                     <div class="pagn-links">
-                        {{$payments->links()}}
+                        {{$complaints->links()}}
                     </div>
                 </div>
             </div>

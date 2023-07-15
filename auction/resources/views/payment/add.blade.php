@@ -1,12 +1,12 @@
 @extends('layout')
 
 
-@section('headTitle','Add Users - ')
-@section('pageTitle','Add Users')
+@section('headTitle','Add Payments - ')
+@section('pageTitle','Add Payments')
 
 
 @section('content')
-<form id="add-user-form" method="post" action="{{URL::to('user/save')}}">
+<form id="add-payment-form" method="post" action="{{URL::to('payment/save')}}">
     @csrf
     <div class="row">
         <div class="col-md-4">
@@ -22,11 +22,11 @@
                         </div>
                     @endif
                     <div class="form-group">
-                        <input type='string' required name="username" class="form-control" placeholder="Enter Username">
-                        <input type='string' required name="role" class="form-control" placeholder="Enter Role name">
-                        <input type='string' required name="email" class="form-control" placeholder="Enter Useremail">
-                        <input type='password' required name="password" class="form-control" placeholder="Enter Password">
-                        <input type='password' required name="cpassword" class="form-control" placeholder="Enter Confirm Password">
+                        <input type='integer' required name="payment_id" class="form-control" placeholder="Enter payment id">
+                        <input type='integer' required name="user_id" class="form-control" placeholder="Enter user_id">
+                        <input type='integer' required name="item_id" class="form-control" placeholder="Enter item_id">
+                        <input type='float' required name="amount" class="form-control" placeholder="Enter amount">
+                        <input type='string' required name="status" class="form-control" placeholder="Enter status">
                     </div>
                     <input type='submit' name="submit" class="form-control btn btn-success">
                 </div>
