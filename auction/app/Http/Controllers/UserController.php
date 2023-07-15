@@ -19,7 +19,11 @@ class UserController extends Controller
     public function save(Request $request){
 
         $request->validate([
-            'user_name' => 'required|min:2|max:10|alpha'
+            'user_name' => 'useremail',
+            'Role'=>'min:2',
+            'email'=>'email',
+            'password'=>'min:9|required_with:cpassword|same:cpassword',
+            'cpassword'=>'min:9',
         ]);
 
         $user_name = ($request->get('user_name'));
