@@ -17,4 +17,5 @@ class Complaint extends Model
      public function buyer(){
         return $this->belongsTo(Buyer::class);
      }
+     
 }

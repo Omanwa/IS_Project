@@ -9,6 +9,50 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function login(){
+        return view('user.login');
+    }
+    public function register(Request $request){
+        return view('user.register');
+      
+    }
+    public function authRegister(Request $request){
+        $request->validate([
+            'username' => 'required|alpha',
+            'role' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'cpassword'=>'required'
+        ]);
+      
+        $user = new User();
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->password = $request->password;
+        $user->cpassword = $request->cpassword;
+        $user->save();
+
+        return redirect('login');
+    }
+ 
+    public function authLogin(Request $req){
+        $email = $req->input('email');
+        $password = $req->input('password');
+    
+        $checkLogin = DB::table('users')->where(['email'=>$email,'password'=>$password])->get();
+    
+        if(count($checkLogin) > 0) {
+            return redirect('/')->with(['name'=>" "]);
+        }
+    
+        else {
+            
+           return redirect('login')->with(['error'=> "Invalid email or Password!!"]);
+        }
+    }
+
     public function all(){
 
         $allUsers = User::paginate(7);
