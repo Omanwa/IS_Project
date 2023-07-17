@@ -22,11 +22,14 @@
                         </div>
                     @endif
                     <div class="form-group">
-                        <input type='integer' required name="payment_id" class="form-control" placeholder="Enter payment id">
-                        <input type='integer' required name="user_id" class="form-control" placeholder="Enter user_id">
+                        <input type='integer' required name="buyer_id" class="form-control" placeholder="Enter buyer_id">
                         <input type='integer' required name="item_id" class="form-control" placeholder="Enter item_id">
                         <input type='float' required name="amount" class="form-control" placeholder="Enter amount">
-                        <input type='string' required name="status" class="form-control" placeholder="Enter status">
+                        <label for="status" style="font-size: 16px">Choose a status:</label>
+                        <select name ="status" id="status">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
                     </div>
                     <input type='submit' name="submit" class="form-control btn btn-success">
                 </div>

@@ -38,20 +38,20 @@
                         <tbody>
                             @forelse($items as $item)
                             <tr>
-                                <td><p class="text-s px-3 mb-0">{{$items->item_id}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$items->category_id}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$items->seller_id}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$items->item_name}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$items->item_startprice}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$items->item_starttime}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$items->item_endtime}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$items->description}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$items->status}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->item_id}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->category_id}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->seller_id}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->item_name}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->item_startprice}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->item_starttime}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->item_endtime}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->description}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$item->status}}</p></td>
                                 <td class="align-middle text-center text-sm">
-                                    <a href="{{URL::to('item/edit/'.$items->item_id)}}">
+                                    <a href="{{URL::to('item/edit/'.$item->item_id)}}">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <a onclick= "return confirm('Are you sure?')" href="{{URL::to('items/delete/'.$items->item_id)}}">
+                                    <a onclick= "return confirm('Are you sure?')" href="{{URL::to('item/delete/'.$item->item_id)}}">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                 </td>

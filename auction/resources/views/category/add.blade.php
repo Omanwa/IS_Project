@@ -22,8 +22,8 @@
                         </div>
                     @endif
                     <div class="form-group">
-                        <input type='string' required name="Category_name" class="form-control" placeholder="Enter Category name">
-                        <input type='string' required name="Description" class="form-control" placeholder="Enter Description">
+                        <input type='string' required name="category_name" class="form-control" placeholder="Enter Category name">
+                        <input type='string' required name="description" class="form-control" placeholder="Enter Description">
                     </div>
                     <input type='submit' name="submit" class="form-control btn btn-success">
                 </div>

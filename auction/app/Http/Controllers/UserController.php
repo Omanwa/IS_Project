@@ -72,7 +72,7 @@ class UserController extends Controller
             'cpassword'=>'min:9',
         ]);
 
-        $user_name = ($request->get('user_name'));
+        $user_name = ($request->get('username'));
         $user_role = ($request->get('role'));
         $user_email = ($request->get('email'));
         $user_password = Hash::make ($request->get('password'));

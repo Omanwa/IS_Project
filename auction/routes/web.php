@@ -23,6 +23,21 @@ Route::get('/', function () {
 
 });
 
+Route::get('admin', function () {
+    return view('admin');
+
+});
+
+Route::get('seller', function () {
+    return view('seller');
+
+});
+
+Route::get('buyer', function () {
+    return view('buyer');
+
+});
+
 //////users routes//////
 Route::post('authRegister',[UserController::class,'authRegister']);
 Route::post('authLogin',[UserController::class,'authLogin']);

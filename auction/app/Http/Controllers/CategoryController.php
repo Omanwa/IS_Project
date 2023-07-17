@@ -19,8 +19,8 @@ class CategoryController extends Controller
     public function save(Request $request){
 
         $this->validate($request, [
-            'Category_name' => 'required|min:2|max:10|alpha',
-            'Description'=> 'min:2'
+            'category_name' => 'required|min:2|max:10|alpha',
+            'description'=> 'min:2'
         ]);
 
         $category_name = ($request->get('category_name'));

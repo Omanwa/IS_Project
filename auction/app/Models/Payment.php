@@ -15,9 +15,9 @@ class Payment extends Model
 
      
      public function buyer(){
-        return $this->belongsTo(Buyer::class,user);
+        return $this->belongsTo(Buyer::class,'buyer_id','Buyer_id');
      }
      public function items(){
-        return $this->belongsTo(Items::class);
+        return $this->belongsTo(Items::class,'item_id','item_id');
      }
 }

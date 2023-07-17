@@ -22,13 +22,36 @@ class ItemController extends Controller
     public function save(Request $request)
     {
         $this->validate($request,[
+            'category_id'=>'required',
+            'seller_id'=>'required',
             'item_name'=>'required|min:5',
             'item_startprice'=>'required',
             'item_starttime'=>'required',
             'item_endtime'=>'required',
             'description'=>'required',
+
         ]);
-}
+        $item_categoryid = ($request->get('category_id'));
+        $item_sellerid = ($request->get('seller_id'));
+        $item_name = ($request->get('item_name'));
+        $item_startprice = ($request->get('item_startprice'));
+        $item_starttime = ($request->get('item_starttime'));
+        $item_endtime =  ($request->get('item_endtime'));
+        $item_description = ($request->get('description'));
+
+        $item = new Item();
+        $item->category_id = $item_categoryid;
+        $item->seller_id = $item_sellerid;
+        $item->item_name = $item_name;
+        $item->item_startprice = $item_startprice;
+        $item->item_starttime = $item_starttime;
+        $item->item_endtime= $item_endtime;
+        $item->description = $item_description;
+
+        $item->save();
+
+          return redirect('items')->with('status',"$item_name item saved");
+    }
 public function edit($items_id){
     $items = Item::find($items_id);
 

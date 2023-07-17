@@ -6,7 +6,7 @@
 
 
 @section('content')
-<form id="add-category-form" method="post" action="{{URL::to('category/save')}}">
+<form id="add-complaint-form" method="post" action="{{URL::to('complaint/save')}}">
     @csrf
     <div class="row">
         <div class="col-md-4">
@@ -22,9 +22,8 @@
                         </div>
                     @endif
                     <div class="form-group">
-                        <input type='string' required name="complaint_id" class="form-control" placeholder="Enter Complaint id">
-                        <input type='string' required name="buyer_id" class="form-control" placeholder="Enter Buyer id">
-                        <input type='string' required name="Description" class="form-control" placeholder="Enter Description">
+                        <input type='Integer' required name="buyer_id" class="form-control" placeholder="Enter Buyer id">
+                        <input type='string' required name="description" class="form-control" placeholder="Enter Description">
                         <input type='string' required name="status" class="form-control" placeholder="Enter status">
                     </div>
                     <input type='submit' name="submit" class="form-control btn btn-success">

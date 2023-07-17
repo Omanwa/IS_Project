@@ -23,8 +23,7 @@
                     <table class="table align-items-center mb-0">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">payment_id</th>
-                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">user_id</th>
+                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">buyer_id</th>
                                 <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">item_id</th>
                                 <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">amount</th>
                                 <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">status</th>
@@ -34,8 +33,7 @@
                         <tbody>
                             @forelse($payments as $payment)
                             <tr>
-                                <td><p class="text-s px-3 mb-0">{{$payment->payment_id}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$payment->user_id}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$payment->buyer_id}}</p></td>
                                 <td><p class="text-s px-3 mb-0">{{$payment->item_id}}</p></td>
                                 <td><p class="text-s px-3 mb-0">{{$payment->amount}}</p></td>
                                 <td><p class="text-s px-3 mb-0">{{$payment->status}}</p></td>

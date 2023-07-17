@@ -35,8 +35,8 @@
                             <tr>
                                 <td><p class="text-s px-3 mb-0">{{$complaint->complaint_id}}</p></td>
                                 <td><p class="text-s px-3 mb-0">{{$complaint->buyer_id}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$category->description}}</p></td>
-                                <td><p class="text-s px-3 mb-0">{{$category->status}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$complaint->description}}</p></td>
+                                <td><p class="text-s px-3 mb-0">{{$complaint->status}}</p></td>
                                 <td class="align-middle text-center text-sm">
                                     <a href="{{URL::to('complaint/edit/'.$complaint->complaint_id)}}">
                                         <i class="fa-solid fa-pen-to-square"></i>

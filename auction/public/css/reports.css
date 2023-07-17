@@ -1,0 +1,16 @@
+.chartCard{
+    width:75vw;
+    height:80vh;
+    background: white;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+  }
+  .chartBox{
+    margin-right: 10px;
+    width:500px;
+    padding:20px;
+    border-radius:20px;
+    border:solid 3px;
+    background:white;
+  }

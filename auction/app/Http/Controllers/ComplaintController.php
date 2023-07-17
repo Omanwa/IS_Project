@@ -19,7 +19,7 @@ class ComplaintController extends Controller
     public function save(Request $request){
 
         $this->validate($request, [
-            'buyer_id' => 'required|min:2|max:10|alpha',
+            'buyer_id' => 'required',
             'description'=> 'min:10',
             'status'=> 'min:7',
             
@@ -35,7 +35,7 @@ class ComplaintController extends Controller
         $complaint->status = $complaint_status;
         $complaint->save();
 
-          return redirect('complaints')->with('status', "complaints saved");
+          return redirect('complaint')->with('status', "complaints saved");
     }
     
 }
