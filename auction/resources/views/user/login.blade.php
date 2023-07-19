@@ -79,16 +79,28 @@
                                     @csrf
                                     <label>Email</label>
                                     <div class="mb-3">
-                                        <input value="{{old('email') ?? ""}}"  type="email" class="form-control  @error('email') is-invalid @enderror" name="email" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                                       <!-- <input value="{{old('email') ?? ""}}"  type="email" class="form-control  @error('email') is-invalid @enderror" name="email" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                         <div class="invalid-feedback">
                                             @error('email') {{$message}} @enderror
-                                        </div>
+                                        </div> -->
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                    @if ($errors->has('email'))
+                        <br><span class="invalid-feedback" style="color: white;">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                                     </div>
                                     <div class="mb-3">
-                                        <input value="" type="password" class="form-control  @error('password') is-invalid @enderror" name="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                      <!--  <input value="" type="password" class="form-control  @error('password') is-invalid @enderror" name="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                                         <div class="invalid-feedback">
                                             @error('password') {{$message}} @enderror
-                                        </div>
+                                        </div>-->
+                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                                     </div>
                                         <div class="form-check form-switch">
 

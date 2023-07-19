@@ -90,8 +90,8 @@
                                 <div class="mb-3 @error('gender') is-invalid @enderror">
                                     <select name="role" id="role" class="form-control @error('gender') is-invalid @enderror">
                                         <option value="">Please select your role</option>
-                                        <option value="1">Seller</option>
-                                        <option value="0">Buyer</option>
+                                        <option value="seller">Seller</option>
+                                        <option value="buyer">Buyer</option>
                                     </select>
                                     <div class="invalid-feedback">
                                         @error('role') {{$message}} @enderror

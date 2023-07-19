@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -22,16 +24,17 @@ class UserController extends Controller
             'role' => 'required',
             'username' => 'required',
             'email' => 'required',
-            'password' => 'required',
-            'cpassword'=>'required'
+            'password'=>'min:9|required_with:cpassword|same:cpassword',
+            'cpassword'=>'min:9',
         ]);
+        
       
         $user = new User();
         $user->username = $request->username;
         $user->email = $request->email;
         $user->role = $request->role;
-        $user->password = $request->password;
-        $user->cpassword = $request->cpassword;
+        $user->password = Hash::make($request->password);
+       
         $user->save();
 
         return redirect('login');
@@ -39,18 +42,26 @@ class UserController extends Controller
  
     public function authLogin(Request $req){
         $email = $req->input('email');
-        $password = $req->input('password');
-    
-        $checkLogin = DB::table('users')->where(['email'=>$email,'password'=>$password])->get();
-    
-        if(count($checkLogin) > 0) {
+        $password = Hash::make($req->input('password'));
+        $user = User::where('email',$email)->first();
+
+        if($user){
+        //user not found
+        
+        //check password
+        if(Hash::check($req->password,$user->password)){
             return redirect('/')->with(['name'=>" "]);
+        
+        }else{
+        //invalid password
+        return redirect('login')->with(['error'=> "Invalid email or Password!!"]);
         }
-    
-        else {
-            
-           return redirect('login')->with(['error'=> "Invalid email or Password!!"]);
+        }else{
+        return redirect('login')->with(['error'=> "Invalid email or Password!!"]);
+         
+        
         }
+
     }
 
     public function all(){
