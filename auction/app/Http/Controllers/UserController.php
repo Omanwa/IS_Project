@@ -50,7 +50,16 @@ class UserController extends Controller
         
         //check password
         if(Hash::check($req->password,$user->password)){
-            return redirect('/')->with(['name'=>" "]);
+           
+                    $rolename= $user->role;
+                    if($rolename == "admin"){
+                        return redirect('admin');
+                    }elseif($rolename == "buyer"){
+                        return redirect('buyer');
+                    }elseif($rolename == "seller"){
+                        return redirect('items');
+                    }
+            //return redirect('/')->with(['name'=>" "]);
         
         }else{
         //invalid password

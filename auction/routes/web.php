@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,12 +25,12 @@ Route::get('/', function () {
 });
 
 Route::get('admin', function () {
-    return view('admin');
+    return view('admindash');
 
 });
 
 Route::get('seller', function () {
-    return view('seller');
+    return view('sellerdash');
 
 });
 
@@ -64,8 +65,8 @@ Route::get('item/add',[ItemController::class,'add']);
 Route::post('item/save',[ItemController::class,'save']);
 Route::post('item/savechanges/{item_id}',[ItemController::class,'savechanges']);
 Route::get('item/edit/{item_id}',[ItemController::class,'edit']);
-Route::get('item/edit/{item_id}',[ItemController::class,'edit']);
 Route::get('item/delete/{item_id}',[ItemController::class,'delete']);
+//Route::get('item/photos',[ItemController::class, 'images']);
 
 //////Payment routes////
 Route::get('payments',[PaymentController::class,'all']);
@@ -76,3 +77,5 @@ Route::post('payment/save',[PaymentController::class,'save']);
 Route::get('complaints',[ComplaintController::class,'all']);
 Route::get('complaint/add',[ComplaintController::class,'add']);
 Route::post('complaint/save',[ComplaintController::class,'save']);
+
+

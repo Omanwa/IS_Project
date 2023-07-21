@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('buyer')
 
 
 @section('headTitle','Add Complaints - ')
@@ -24,7 +24,11 @@
                     <div class="form-group">
                         <input type='Integer' required name="buyer_id" class="form-control" placeholder="Enter Buyer id">
                         <input type='string' required name="description" class="form-control" placeholder="Enter Description">
-                        <input type='string' required name="status" class="form-control" placeholder="Enter status">
+                        <label for="status" style="font-size: 16px">Choose a status:</label>
+                        <select name ="status" id="status">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
                     </div>
                     <input type='submit' name="submit" class="form-control btn btn-success">
                 </div>

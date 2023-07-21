@@ -20,7 +20,7 @@ class ItemController extends Controller
         return view('item.add');
     }
     public function save(Request $request)
-    {
+{
         $this->validate($request,[
             'category_id'=>'required',
             'seller_id'=>'required',
@@ -29,8 +29,11 @@ class ItemController extends Controller
             'item_starttime'=>'required',
             'item_endtime'=>'required',
             'description'=>'required',
+            'status'=>'required',
+           'images'=>'image|mimes:png,jpg,jpeg|max:1000',
 
         ]);
+
         $item_categoryid = ($request->get('category_id'));
         $item_sellerid = ($request->get('seller_id'));
         $item_name = ($request->get('item_name'));
@@ -38,6 +41,20 @@ class ItemController extends Controller
         $item_starttime = ($request->get('item_starttime'));
         $item_endtime =  ($request->get('item_endtime'));
         $item_description = ($request->get('description'));
+        $item_status = ($request->get('status'));
+
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+
+            foreach ($images as $image) {
+                $fileName = $image->getClientOriginalName();
+                $image->move(public_path('images'), $fileName);
+
+                $image = new Image();
+                $image->file_name = $fileName;
+                $item->images()->save($image);
+            }
+        }
 
         $item = new Item();
         $item->category_id = $item_categoryid;
@@ -45,13 +62,14 @@ class ItemController extends Controller
         $item->item_name = $item_name;
         $item->item_startprice = $item_startprice;
         $item->item_starttime = $item_starttime;
-        $item->item_endtime= $item_endtime;
+        $item->item_endtime = $item_endtime;
         $item->description = $item_description;
-
+        $item->status = $item_status;
         $item->save();
 
-          return redirect('items')->with('status',"$item_name item saved");
-    }
+        return redirect('items')->with('status',"$item_name item saved");
+}
+
 public function edit($items_id){
     $items = Item::find($items_id);
 

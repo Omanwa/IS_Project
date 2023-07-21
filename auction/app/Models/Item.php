@@ -11,7 +11,7 @@ class Item extends Model
     protected $table="items";
     protected $primaryKey="item_id";
     //which fields can be filled in from this application
-    protected $fillable = ['category_id','seller_id','item_name','item_startprice','item_starttime','item_endtime','description','status'];
+    protected $fillable = ['category_id','seller_id','item_name','item_startprice','item_starttime','item_endtime','description','status','images'];
 
      
      public function category(){
@@ -20,4 +20,8 @@ class Item extends Model
      public function seller(){
         return $this->belongsTo(Seller::class);
      }
+     public function images()
+    {
+        return $this->hasMany('App\Models\Image');
+    }
 }

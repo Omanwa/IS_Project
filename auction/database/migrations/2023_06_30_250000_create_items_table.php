@@ -19,10 +19,11 @@ class CreateItemsTable extends Migration
             $table->unsignedInteger('seller_id');
             $table->string('item_name',50);
             $table->float('item_startprice',50);
-            $table->dateTime('item_starttime');
-            $table->dateTime('item_endtime');
+            $table->time('item_starttime');
+            $table->time('item_endtime');
             $table->text('description');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('images');
             $table->timestamps();
 
            

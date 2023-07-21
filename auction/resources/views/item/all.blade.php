@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('seller')
 
 
 @section('headTitle','Items - ')
@@ -32,6 +32,7 @@
                                 <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">itemnendtime</th>
                                 <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">description</th>
                                 <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">status</th>
+                                <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">image</th>
                                 <th class="align-middle text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">Actions</th>
                             </tr>
                         </thead>

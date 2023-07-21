@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('seller')
 
 
 @section('headTitle','Complaints - ')

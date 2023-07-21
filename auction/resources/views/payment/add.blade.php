@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('buyer')
 
 
 @section('headTitle','Add Payments - ')
